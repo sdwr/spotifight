@@ -1,2 +1,4 @@
-node_modules
-package-lock.json
+assblast-client/node_modules
+assblast-client/package-lock.json
+assblast-server/node_modules
+assblast-server/package-lock.json
