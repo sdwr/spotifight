@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body } from '@nestjs/common';
+import { Controller, Get, Post, Body, Param } from '@nestjs/common';
 
 import { RestaurantsService } from './restaurants.service';
 import { CreateRestaurantDto } from './dto/create-restaurant.dto';
@@ -9,6 +9,12 @@ export class RestaurantsController {
 	@Get()
 	async findAll() {
 		return this.restaurantsService.findAll();
+	}
+
+	@Get(':searchName')
+	async search(@Param() params) {
+		return this.findAll()
+			.then((restaurants) => restaurants.filter(r => r.name.includes(params.searchName)));
 	}
 
 	@Post()

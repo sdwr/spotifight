@@ -1,0 +1,5 @@
+<div class="add-site-container">
+	<input type="button" value="Add from clipboard" 
+		(click)="addFromClipboard()" [disabled]="!clipboardRead">
+	<input type="button" value='Req perm' (click)="requestPermission()">
+</div>
