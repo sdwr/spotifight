@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { DbService } from '../db/db.service';
+
+import { SiteItem } from '../models/SiteItem';
 
 @Component({
   selector: 'app-add-site',
@@ -7,29 +11,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddSiteComponent implements OnInit {
 
-	nav = navigator as NavigatorPermissions.NavigatorPermissions;
-	clipboardRead: boolean;
+	siteItems$: Observable<any>;
 
-	constructor() {  
-		this.requestPermission();
+	constructor(private dbService: DbService) {  
 	}
 
 	ngOnInit() {
+		this.siteItems$ = this.dbService.getSiteItems();
+		this.siteItems$.subscribe(x => console.log(x.message))
 	}
 
-	addFromClipboard() {
-		window.navigator.clipboard.readText().then(x => console.log(x))
-	}
-
-	requestPermission() {
-		this.nav.permissions.query({name:"clipboard-read"})
-			.then(status => this.attemptClipboardCopy(status))
-			.then(status => this.clipboardRead = status.state === "granted");
-	}
-
-	attemptClipboardCopy(status) {
-		return window.navigator.clipboard.readText()
-			.then(t => status);
+	addSite(url: string) {
+		console.log(2);
+		this.dbService.addSiteItem(url);
 	}
 
 }

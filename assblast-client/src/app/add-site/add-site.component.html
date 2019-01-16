@@ -1,5 +1,7 @@
 <div class="add-site-container">
-	<input type="button" value="Add from clipboard" 
-		(click)="addFromClipboard()" [disabled]="!clipboardRead">
-	<input type="button" value='Req perm' (click)="requestPermission()">
+	<input #siteInput>
+	<button (click)="addSite(siteInput.value)">Add site </button>
+	<li *ngFor="let siteItem of siteItems">
+		{{siteItem.url}}
+	</li>
 </div>
