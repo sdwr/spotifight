@@ -1,6 +1,5 @@
 <div class="search-container">
-	<input [(ngModel)]="searchTerm" type="text" placeholder="Search a restaurant">
-	<input routerLink="/search" type="button" value="Search" (click)="searchRestaurants()">
-	<router-outlet></router-outlet>
-	<div *ngIf="mcdonalds"> <h1> Awwww Yeaaahhhhh, I'm McLovin it!!<h1><div>
+	<input [(ngModel)]="searchTerm" type="text" placeholder="Search a restaurant" (keyup.enter)="searchRestaurants()">
+	<input type="button" value="search" (click)="searchRestaurants()">
 </div>
+<app-search-results [restaurants]="restaurants" *ngIf="showResults"> </app-search-results>

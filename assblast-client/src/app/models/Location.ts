@@ -1,4 +1,4 @@
 export interface Location {
-      type: "Point",
+      type: string,
       coordinates: number[]
 }

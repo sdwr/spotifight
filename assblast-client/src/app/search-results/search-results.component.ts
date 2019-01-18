@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { Location } from '../models/Location'
-import { Restaurant } from '../models/Restaurant'
+import { Component, Input, OnInit } from '@angular/core';
+import { AppService } from '../app.service';
+import { Location } from '../models/Location';
+import { Restaurant } from '../models/Restaurant';
 
 @Component({
   selector: 'app-search-results',
@@ -8,32 +9,13 @@ import { Restaurant } from '../models/Restaurant'
   styleUrls: ['./search-results.component.scss']
 })
 export class SearchResultsComponent implements OnInit {
+  @Input() searchTerm: string;
+  @Input() restaurants: Restaurant[];
+  mcdonalds: boolean = false;
 
-  constructor() {
-  	var location: Location = {
-  		type: "Point",
-  		coordinates: [10,10]
-  	}
-  	var restaurants: Restaurant[] = [
-  		{
-  			name: "Burrito Del Rio",
-  			location: location,
-  			url: "www.penisland.com"
-  		},
-  		{
-  			name: "Subway",
-  			location: location,
-  			url: "www.penisland.com"
-  		},
-  		{
-  			name: "McDonalds",
-  			location: location,
-  			url: "www.penisland.com"
-  		}
-  	];	
+  constructor(private appService: AppService) {
   }
 
   ngOnInit() {
   }
-
 }

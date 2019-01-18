@@ -1,2 +1,6 @@
 <div>
+	<p>Search results...</p>
+	<li *ngFor="let restaurant of restaurants">
+    	<app-search-result [searchResult]="restaurant"></app-search-result>
+  </li>
 </div>

@@ -8,6 +8,8 @@ import { AppComponent } from './app.component';
 import { SearchComponent } from './search/search.component';
 import { SearchResultsComponent } from './search-results/search-results.component';
 import { AddSiteComponent } from './add-site/add-site.component';
+import { SearchResultComponent } from './search-result/search-result.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +17,8 @@ import { AddSiteComponent } from './add-site/add-site.component';
     SearchComponent,
     SearchResultsComponent,
     AddSiteComponent
+    SearchResultComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
