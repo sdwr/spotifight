@@ -7,11 +7,10 @@ import { Restaurant } from '../models/Restaurant';
   styleUrls: ['./search-result.component.scss']
 })
 export class SearchResultComponent implements OnInit {
-	@Input() searchResult: Restaurant;
+  @Input() searchResult: Restaurant;
 
-  	constructor() { }
+  constructor() { }
 
-  	ngOnInit() {
-  	}
-
+  ngOnInit() {
+ 	}
 }

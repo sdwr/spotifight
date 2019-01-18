@@ -6,13 +6,12 @@ import { AddSiteComponent } from './add-site/add-site.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 const routes: Routes = [
-	{ path: 'search', component: SearchResultsComponent },
-	{ path: 'add-site', component: AddSiteComponent}
 	{ path: '', redirectTo: '/restaurants', pathMatch: 'full' },
 	{ path: 'restaurants', component: SearchComponent, children: [
     		{ path: ':search', component: SearchResultsComponent }
-  	]},
-	{ path: '**', component: PageNotFoundComponent },
+  ]},
+  { path: 'add-site', component: AddSiteComponent},
+	{ path: '**', component: PageNotFoundComponent }
 ];
 
 @NgModule({

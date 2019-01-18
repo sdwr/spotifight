@@ -1,5 +1,7 @@
+<div>
 <div class="search-container">
 	<input [(ngModel)]="searchTerm" type="text" placeholder="Search a restaurant" (keyup.enter)="searchRestaurants()">
 	<input type="button" value="search" (click)="searchRestaurants()">
 </div>
 <app-search-results [restaurants]="restaurants" *ngIf="showResults"> </app-search-results>
+</div>

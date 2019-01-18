@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { AppService } from '../app.service';
-import { Location } from '../models/Location';
 import { Restaurant } from '../models/Restaurant';
 
 @Component({
@@ -11,7 +10,6 @@ import { Restaurant } from '../models/Restaurant';
 export class SearchResultsComponent implements OnInit {
   @Input() searchTerm: string;
   @Input() restaurants: Restaurant[];
-  mcdonalds: boolean = false;
 
   constructor(private appService: AppService) {
   }
