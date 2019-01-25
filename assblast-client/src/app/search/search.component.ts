@@ -1,8 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router'
 import { AppService } from '../app.service';
+import { DbService } from '../db/db.service';
 import { Subscription } from 'rxjs';
 import { Restaurant } from '../models/Restaurant';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-search',
@@ -14,14 +16,18 @@ export class SearchComponent implements OnInit {
   @Input() restaurants: Restaurant[];
   showResults: boolean = false;
 	mcdonalds: boolean = false;
+  rests: Observable<any>;
 
   	constructor(private appService: AppService,
+                private dbService: DbService,
                 private router: Router,
                 private route: ActivatedRoute) { 
 
       this.route.params.subscribe(params => {
         this.showResults = params['search'] ? true : false;
       });
+
+      this.rests = dbService.getRestaurants();
     }
 
   	ngOnInit() {

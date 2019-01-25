@@ -1,4 +1,7 @@
 <div>
+<li *ngFor="let rest of rests | async">
+	{{ rest.name }}
+</li> 
 <div class="search-container">
 	<input [(ngModel)]="searchTerm" type="text" placeholder="Search a restaurant" (keyup.enter)="searchRestaurants()">
 	<input type="button" value="search" (click)="searchRestaurants()">

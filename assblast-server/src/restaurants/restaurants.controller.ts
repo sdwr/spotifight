@@ -11,7 +11,7 @@ export class RestaurantsController {
 		return this.restaurantsService.findAll();
 	}
 
-	@Get(':search')
+	@Get(':searchName')
 	async search(@Param() params) {
 		return this.findAll()
 			.then((restaurants) => restaurants.filter(r => r.name.includes(params.searchName)));
