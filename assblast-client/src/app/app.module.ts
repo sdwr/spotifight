@@ -16,7 +16,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     AppComponent,
     SearchComponent,
     SearchResultsComponent,
-    AddSiteComponent
+    AddSiteComponent,
     SearchResultComponent,
     PageNotFoundComponent
   ],
