@@ -1,4 +1,4 @@
-import { Model } from 'mongoose';
+import { Model, Query } from 'mongoose';
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Restaurant } from './interfaces/restaurant.interface';
@@ -19,5 +19,10 @@ export class RestaurantsService {
 
   async findAll(): Promise<Restaurant[]> {
     return await this.restaurantModel.find().exec();
+  }
+
+  async update(dto: CreateRestaurantDto): Promise<Query> {
+  	const rest = new this.restaurantModel(dto);
+  	return await rest.update();
   }
 }
